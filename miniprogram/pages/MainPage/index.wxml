@@ -1,0 +1,39 @@
+<view class="background-container">
+  <image class="background-image" src="{{backgroundImage}}"></image>
+</view>
+
+<view class="main-container">
+
+<view class="form-group_label">💰 积分榜</view>
+    <view class="form-group credit-ranking" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell half-cell">
+        <view class="slide center-content">
+        <view class="title user-b-title">{{userB}}的积分</view>
+        <view class="credit-value">{{creditB}}</view>
+        </view>
+    </view>
+    <view class="form-cell half-cell">
+        <view class="slide center-content">
+        <view class="title user-a-title">{{userA}}的积分</view>
+        <view class="credit-value">{{creditA}}</view>
+        </view>
+    </view>
+</view>
+
+<view class="form-group_label">🐰 欢迎回来</view>
+  <view class="form-group welcome-card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">欢迎~ 然然和小向！</view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">今天是相识第{{daysInLove}}天</view>
+      </view>
+    </view>
+  </view>
+  <view bindtap="requestSubscribeMessage" wx:if="{{false}}">接收服务通知</view>
+  <button bindtap="requestSubscribeMessage" wx:if="{{false}}">开启订阅通知</button>
+  <text wx:if="{{false}}">授权结果：{{requestSubscribeMessageResult}}</text>
+</view>

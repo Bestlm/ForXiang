@@ -1,0 +1,92 @@
+var filterStr = function (str, limit) {
+  return str.length > limit ? str.substring(0, limit) + "..." : str
+}
+
+// 获取任务记录的状态（适用于长期任务的dailyRecords）
+var getRecordStatus = function (records, todayStr, isLongTerm) {
+  if (!records || records.length === 0) {
+    return '';
+  }
+  
+  if (isLongTerm) {
+    // 长期任务：查找今日的记录
+    for (var i = 0; i < records.length; i++) {
+      var record = records[i];
+      if (!record || !record.date) {
+        continue;
+      }
+      if (record.date === todayStr) {
+        // 如果是旧记录没有status字段，默认视为已完成
+        return record.status || 'approved';
+      }
+    }
+  } else {
+    // 普通任务：只看最新的记录
+    var latestRecord = records[records.length - 1];
+    return latestRecord.status || '';
+  }
+  
+  return '';
+}
+
+// 获取打卡/完成按钮的显示文本
+var getCheckinButtonText = function (task, todayStr) {
+  var records = task.isLongTerm ? task.dailyRecords : task.checkinRecords;
+  var status = getRecordStatus(records, todayStr, task.isLongTerm);
+  
+  // 任务已完成，直接返回
+  if (!task.available) {
+    return '已完成';
+  }
+  
+  switch (status) {
+    case 'pending':
+      return '待审核';
+    case 'approved':
+      return task.isLongTerm ? '已打卡' : '已完成';
+    case 'rejected':
+      return task.isLongTerm ? '打卡' : '完成';
+    default:
+      return task.isLongTerm ? '打卡' : '完成';
+  }
+}
+
+// 判断是否允许打卡/完成
+var canCheckinToday = function (task, todayStr) {
+  if (!task.available) {
+    return false; // 任务已完成
+  }
+  
+  var records = task.isLongTerm ? task.dailyRecords : task.checkinRecords;
+  var status = getRecordStatus(records, todayStr, task.isLongTerm);
+  
+  // 只有已驳回或没有记录时才能操作
+  return status === 'rejected' || status === '';
+}
+
+// 生成左滑按钮数组
+  var getSlideButtons = function (task, currentOpenId) {
+    var buttons = [];
+    
+    // 只有未完成且不是自己发布的任务才显示完成按钮
+    if (task.available && currentOpenId !== task._openid) {
+      buttons.push({extClass: 'markBtn', text: '完成', src: "Images/icon_mark.svg"});
+    }
+    
+    // 收藏按钮：所有用户都可以看到
+    buttons.push({extClass: 'starBtn', text: '收藏', src: "Images/icon_star.svg"});
+    
+    // 删除按钮：只有任务发布者可以操作
+    if (currentOpenId === task._openid) {
+      buttons.push({extClass: 'removeBtn', text: '删除', src: 'Images/icon_del.svg'});
+    }
+    
+    return buttons;
+  }
+
+module.exports = {
+  filterStr: filterStr,
+  getCheckinButtonText: getCheckinButtonText,
+  canCheckinToday: canCheckinToday,
+  getSlideButtons: getSlideButtons
+}

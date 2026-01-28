@@ -1,0 +1,135 @@
+
+
+.mission-info_title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #353535;
+}
+
+.mission-info_desc {
+  font-size: 14px;
+  color: darkgray;
+}
+
+.mission-info_credit {
+  font-size: 14px;
+  color: darkgray;
+  margin-left: 10px;
+}
+
+.longterm-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-section {
+  width: 100%;
+}
+
+.progress-text {
+  font-size: 14px;
+  color: #ff5794;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.daily-credit {
+  font-size: 14px;
+  color: #666;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.total-credit {
+  font-size: 14px;
+  color: #ff5794;
+  padding: 5px 10px;
+  background-color: #fff0f5;
+  border-radius: 5px;
+}
+
+.daily-records {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-date {
+  font-size: 14px;
+  color: #666;
+}
+
+.record-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.record-status.pending {
+  color: #FFC107;
+}
+
+.record-status.approved {
+  color: #4CAF50;
+}
+
+.record-status.rejected {
+  color: #F44336;
+}
+
+.record-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.audit-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.approve-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  line-height: normal;
+  height: auto;
+}
+
+.reject-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #F44336;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  line-height: normal;
+  height: auto;
+}
+
+.record-empty {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 20px 0;
+}

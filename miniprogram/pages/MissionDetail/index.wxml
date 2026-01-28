@@ -1,0 +1,66 @@
+<wxs module="util" src="../util.wxs" />
+
+<view class="container white" style="animation-name: animation-blur; animation-duration: 0.8s; background-color: white !important;">
+  <image src="../../images/Mission.gif" mode='widthFix' />
+  <view class="form-group" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05); ">
+    <view class="form-cell">
+      <view class="mission-info_title">📌 任务名称</view>
+      <view class="mission-info_desc">{{mission.title}}</view>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">💡 执行计划</view>
+      <view class="mission-info_desc">此任务由{{from}}发布，由{{to}}完成执行，完成后{{to}}将获得积分。</view>
+    </view>
+    <view class="form-cell" wx:if="{{!mission.isLongTerm}}">
+      <view class="mission-info_title">💰 奖励力度：{{mission.credit}} 积分</view>
+      <progress percent="{{creditPercent}}" border-radius="5" font-size="8" duration="10" color="lightsalmon" active stroke-width="7"> 
+        <view class="mission-info_credit">{{maxCredit}} 积分</view>
+      </progress>
+    </view>
+    <view class="form-cell" wx:if="{{mission.isLongTerm}}">
+      <view class="mission-info_title">🔄 长期任务进度</view>
+      <view class="longterm-info">
+        <view class="progress-section">
+          <progress percent="{{mission.completedDays / mission.totalDays * 100}}" stroke-width="8" activeColor="#ff5794" backgroundColor="#f0f0f0" />
+          <view class="progress-text">{{mission.completedDays}}/{{mission.totalDays}} 天</view>
+        </view>
+        <view class="daily-credit">每日积分：{{mission.dailyCredit}} 分</view>
+        <view class="total-credit">总积分：{{mission.credit}} 分</view>
+      </view>
+    </view>
+    <!-- 显示打卡/完成记录，无论是长期任务还是普通任务 -->
+    <view class="form-cell" wx:if="{{mission.isLongTerm || mission.checkinRecords}}">
+      <view class="mission-info_title">📔 {{mission.isLongTerm ? '打卡记录' : '完成记录'}}</view>
+      <view class="daily-records">
+        <!-- 长期任务显示dailyRecords -->
+        <view class="record-item" wx:for="{{mission.isLongTerm ? mission.dailyRecords : mission.checkinRecords}}" wx:key="index">
+          <view class="record-content">
+            <view class="record-date">{{item.formattedDate || item.date}}</view>
+            <view class="record-status {{item.status}}">
+              <text wx:if="{{item.status === 'pending'}}">⏳ 待审核</text>
+              <text wx:elif="{{item.status === 'approved'}}">✓ 已通过</text>
+              <text wx:else>✗ 已驳回</text>
+            </view>
+          </view>
+          <!-- 只有任务发布者才能看到审核按钮，并且记录状态为待审核 -->
+          <view class="audit-buttons" wx:if="{{currentOpenId === mission._openid && item.status === 'pending'}}">
+            <button class="approve-btn" bindtap="approveCheckin" data-index="{{index}}">通过</button>
+            <button class="reject-btn" bindtap="rejectCheckin" data-index="{{index}}">驳回</button>
+          </view>
+        </view>
+        <view class="record-empty" wx:if="{{(mission.isLongTerm ? mission.dailyRecords.length : (mission.checkinRecords ? mission.checkinRecords.length : 0)) === 0}}">
+          暂无{{mission.isLongTerm ? '打卡' : '完成'}}记录
+        </view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">📅 创建日期</view>
+      <view class="mission-info_desc">{{dateStr}}</view>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">📝 任务详情</view>
+      <view class="mission-info_desc">{{mission.desc}}</view>
+    </view>
+  </view>
+</view>

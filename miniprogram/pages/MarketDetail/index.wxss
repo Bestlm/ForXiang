@@ -1,0 +1,17 @@
+.item-info_title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #353535;
+}
+
+.item-info_desc {
+  font-size: 14px;
+  color: darkgray;
+}
+
+.item-info_credit {
+  font-size: 14px;
+  color: darkgray;
+  margin-left: 10px;
+}

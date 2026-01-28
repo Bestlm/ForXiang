@@ -1,0 +1,136 @@
+/* 引入 weui 组件 */
+@import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+
+/* 全局背景图片容器样式 */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* 背景图片样式 */
+.background-image {
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  object-fit: cover;
+}
+
+page {
+  --footer-height: 10vh;
+  --button-size: 16vw;
+  --button-color: #353535;
+  --button-icon-size: 6vw;
+}
+
+page {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* 为白色容器页面添加特殊处理 */
+page:has(.container.white) {
+  background-color: white !important;
+  /* 移除overflow: hidden，允许页面内容滚动 */
+}
+
+/* 隐藏白色容器页面的背景图片 */
+page:has(.container.white) .background-container {
+  display: none;
+}
+
+.container.white {
+  background-color: white !important;
+  min-height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin-bottom: 80px;
+  background: transparent;
+  /* 调整顶部内边距，适配不同平台导航栏高度差异 */
+  padding-top: 20px;
+  /* 确保内容容器可以滚动而不露出背景 */
+  overflow-y: auto;
+}
+
+/* 适配首页的主容器 */
+.main-container {
+  /* 调整顶部内边距，适配不同平台导航栏高度差异 */
+  padding-top: 20px !important;
+}
+
+/* 为所有页面添加顶部内边距，确保内容不会紧贴导航栏 */
+page {
+  /* 增加页面顶部的安全区域内边距 */
+  padding-top: env(safe-area-inset-top, 20px);
+}
+
+/* 调整表单组标签的上边距，增加与导航栏的间距 */
+.form-group_label {
+  margin-top: 30px !important;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button::after {
+  border: none;
+}
+/* 表单组样式 */
+.form-group {
+  width: calc(100% - 40px);
+  margin: 10px 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.form-group_label {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #8D8D8D;
+  font-size: 15px;
+}
+
+.form-group_label:not(:first-child) {
+  margin-top: 20px;
+}
+
+.form-cell {
+  padding: 20px 15px;
+}
+
+.form-cell:not(:last-child) {
+  border-bottom: rgba(0, 0, 0, 0.05) solid 1px;
+}
+
+.form-cell.inline {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@keyframes animation-blur {
+    from {filter: blur(7px);}
+    to {filter: blur(0px);}
+}
+

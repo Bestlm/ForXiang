@@ -1,0 +1,193 @@
+.background {
+  width: 70vw;
+  margin-top: 5vh;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 19px;
+  font-weight: bold;
+}
+.subtitle {
+  margin-top: 9px;
+  font-size: 14px;
+}
+
+.swiper-image{
+  display: block;
+  height: 100%; 
+  width: 100%;
+  background-color: darkgray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 调整容器间距，增加标题和背景的间距 */
+.container {
+  padding-top: 40px;
+}
+
+.form-cell {
+    padding: 0;
+}
+
+.form-group_label {
+  align-self: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #353535;
+}
+.slide {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.mission-info {
+  width: auto;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column
+}
+.mission-info_title {
+  font-size: 18px;
+}
+.mission-info_desc {
+  font-size: 14px;
+  color: #BDBDBD;
+}
+.mission-info_date {
+  font-size: 14px;
+  color: #BDBDBD;
+}
+.mission-info_award {
+  font-size: 14px;
+}
+.mission-info_author {
+  width: 70px;
+  height: 100%;
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+}
+.mission-info_longterm {
+  margin-top: 5px;
+}
+.progress-bar {
+  width: 100%;
+  position: relative;
+}
+.progress-text {
+  font-size: 14px;
+  color: #ff5794;
+  text-align: center;
+  margin-top: 2px;
+}
+.checkin-btn {
+  margin-top: 8px;
+  background-color: #ff5794;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+  z-index: 10;
+  width: fit-content;
+  align-self: center;
+}
+
+.pending-tip {
+  margin-top: 8px;
+  background-color: #ffc107;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+  z-index: 10;
+  width: fit-content;
+  align-self: center;
+  font-weight: bold;
+}
+
+
+.star {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.markBtn .weui-slideview__btn {background-color: greenyellow;}
+.starBtn .weui-slideview__btn {background-color: gold;}
+.removeBtn .weui-slideview__btn {background-color: lightsalmon;}
+.hiddenBtn .weui-slideview__btn {background-color: transparent; opacity: 0;}
+
+.btn-normal{
+  margin: 2%;
+  color: white;
+  background-color: #3d3d3d;
+}
+.btn-hover{
+  color: black;
+  background-color: gray;
+}
+
+.search-bar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  padding: 5px 12px;
+  height: 36px;
+  align-items: center;
+}
+.search-input {
+  position: relative;
+  left: 20px;
+  height: 26px;
+  width: 80%;
+  line-height: 26px;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.search-icon {
+  position: absolute;
+  margin: 2px;
+}
+
+/* 添加新任务按钮样式 */
+.add-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.add-button {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ff99aa;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 0;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-button:active {
+  background-color: #ff7799;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,118 @@
+.form-cell {
+  padding: 0;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.swiper-image{
+  display: block;
+  height: 100%; 
+  width: 100%;
+  position: relative;
+  background-color: darkgray;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* 积分榜样式 */
+.credit-ranking {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+}
+
+.half-cell {
+  width: 50%;
+  border-right: 1px solid #f0f0f0;
+  box-sizing: border-box;
+}
+
+.half-cell:last-child {
+  border-right: none;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.user-a-title {
+  color: #ff6b9d;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.user-b-title {
+  color: #5c87fe;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.credit-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #353535;
+  margin-top: 5px;
+}
+
+.user-a-title + .credit-value {
+  color: #ff6b9d;
+}
+
+.user-b-title + .credit-value {
+  color: #5c87fe;
+}
+
+/* 主容器样式 */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 20px 20px 20px; /* 增加顶部padding，增加标题和背景的间距 */
+  box-sizing: border-box;
+  min-height: calc(100vh - 80px); /* 减去底部tabBar高度 */
+}
+
+/* 确保表单组居中且宽度合适 */
+.main-container .form-group {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px 0;
+}
+
+.main-container .form-group_label {
+  align-self: flex-start;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #353535;
+}
+
+/* 去掉欢迎回来卡片内的分割线 */
+.welcome-card .form-cell {
+  border-bottom: none;
+}
+
+/* 调整欢迎回来卡片内的内容间距 */
+.welcome-card .slide {
+  padding: 15px 10px;
+}

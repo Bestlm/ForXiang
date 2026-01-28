@@ -1,0 +1,167 @@
+.background {
+  width: 70vw;
+  margin-top: 5vh;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 19px;
+  font-weight: bold;
+}
+.subtitle {
+  margin-top: 9px;
+  font-size: 14px;
+}
+
+.swiper-image{
+  display: block;
+  height: 100%; 
+  width: 100%;
+  background-color: darkgray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-cell {padding: 0;}
+
+.form-group_label {
+  align-self: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #353535;
+}
+.slide {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.item-info {
+  width: auto;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column
+}
+.item-info_title {
+  font-size: 18px;
+}
+.item-info_desc {
+  font-size: 14px;
+  color: #BDBDBD;
+}
+.item-info_date {
+  font-size: 14px;
+  color: #BDBDBD;
+}
+.item-info_author {
+  width: 70px;
+  height: 100%;
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+}
+.item-info_award {
+  font-size: 14px;
+}
+
+.star {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.buyBtn .weui-slideview__btn {background-color: greenyellow;}
+.starBtn .weui-slideview__btn {background-color: gold;}
+.removeBtn .weui-slideview__btn {background-color: lightsalmon;}
+
+.btn-normal{
+  margin: 2%;
+  color: white;
+  background-color: #3d3d3d;
+}
+.btn-hover{
+  color: black;
+  background-color: gray;
+}
+
+.search-bar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  padding: 5px 12px;
+  height: 36px;
+  align-items: center;
+}
+.search-input {
+  position: relative;
+  left: 20px;
+  height: 26px;
+  width: 80%;
+  line-height: 26px;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.search-icon {
+  position: absolute;
+  margin: 2px;
+}
+
+.page-title{
+    position: fixed;
+    font-size: 14px;
+    width: 100%;
+    height: 40px;
+    top: 0px;
+    color: #353535;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+    /* 鸿蒙平台可能不支持backdrop-filter，使用半透明背景替代 */
+    background-color: rgba(255, 255, 255, 0.98);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.page-title-left {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.page-title-right {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* 从首页导入用户颜色样式 */
+.user-a-title {
+    color: #ff6b9d;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.user-b-title {
+    color: #5c87fe;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* 调整容器间距，适配新的横条高度 */
+.container {
+    margin-top: 40px;
+}
